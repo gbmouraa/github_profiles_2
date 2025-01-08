@@ -41,10 +41,16 @@ function App() {
               className="user_avatar"
             />
             <div className="user_details">
-              <span>Name:{userData.name}</span>
-              <span>followers:{userData.followers}</span>
-              <span>following:{userData.following}</span>
-              <span>repos:{userData.public_repos}</span>
+              <a href={userData.html_url} className="user_name">
+                {userData.name}
+              </a>
+              <div>
+                <span>followers:{userData.followers}</span>
+                <span>following:{userData.following}</span>
+                <span>repos:{userData.public_repos}</span>
+              </div>
+              {/* Repositorios */}
+              <div></div>
             </div>
           </div>
         ) : (
