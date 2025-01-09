@@ -5,17 +5,26 @@ import githubLogo from "./images/github.svg";
 function App() {
   const [userName, setUserName] = useState("");
   const [userData, setUserData] = useState();
+  const [repos, setRepos] = useState();
 
-  const loadUserData = async () => {
+  const fetchUserData = async () => {
     await api.get(userName).then((response) => {
       setUserData(response.data);
-      console.log(response.data);
+      fetchRepos(userName);
+    });
+  };
+
+  const fetchRepos = async (user) => {
+    await api.get(`${user}/repos?sort=created`).then((response) => {
+      setRepos(() => {
+        return response.data.slice(0, 5);
+      });
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    loadUserData();
+    fetchUserData();
   };
 
   return (
@@ -33,24 +42,37 @@ function App() {
           </form>
         </div>
         {userData ? (
-          // <UserCard data={data}/>
-          <div className="user_card">
-            <img
-              src={userData.avatar_url}
-              alt="User avatar"
-              className="user_avatar"
-            />
-            <div className="user_details">
-              <a href={userData.html_url} className="user_name">
-                {userData.name}
-              </a>
-              <div>
-                <span>followers:{userData.followers}</span>
-                <span>following:{userData.following}</span>
-                <span>repos:{userData.public_repos}</span>
+          <div className="user_card_wrapper">
+            <div className="user_card">
+              <img
+                src={userData.avatar_url}
+                alt="User avatar"
+                className="user_avatar"
+              />
+              <div className="user_details">
+                <a href={userData.html_url} className="user_name">
+                  {userData.name}
+                </a>
+                <div className="user_infos">
+                  <span>{userData.followers} followers</span>
+                  <span>{userData.following} following</span>
+                  <span>{userData.public_repos} repos</span>
+                </div>
+                {repos ? (
+                  <div>
+                    {repos.map((item) => {
+                      return (
+                        <a key={item} href={item.html_url}>
+                          {item.name}
+                        </a>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <></>
+                )}
+                <div></div>
               </div>
-              {/* Repositorios */}
-              <div></div>
             </div>
           </div>
         ) : (
