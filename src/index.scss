@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body {
@@ -38,6 +39,11 @@ body {
   }
 }
 
+.user_card_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .user_card {
   background-color: #4c2885;
   display: flex;
@@ -65,6 +71,17 @@ body {
 
     a {
       color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .user_infos {
+      display: flex;
+      gap: 12px;
     }
   }
 }
