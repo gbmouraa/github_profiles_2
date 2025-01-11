@@ -59,10 +59,10 @@ function App() {
                   <span>{userData.public_repos} repos</span>
                 </div>
                 {repos ? (
-                  <div>
-                    {repos.map((item) => {
+                  <div className="repos">
+                    {repos.map((item, idx) => {
                       return (
-                        <a key={item} href={item.html_url}>
+                        <a key={idx} href={item.html_url}>
                           {item.name}
                         </a>
                       );
@@ -71,7 +71,6 @@ function App() {
                 ) : (
                   <></>
                 )}
-                <div></div>
               </div>
             </div>
           </div>
