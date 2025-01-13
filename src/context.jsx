@@ -8,10 +8,13 @@ export const ContextProvider = ({ children }) => {
   const [repos, setRepos] = useState();
 
   const fetchUserData = async (userName) => {
-    await api.get(userName).then((response) => {
+    try {
+      const response = await api.get(userName);
       setUserData(response.data);
-      fetchRepos(userName);
-    });
+      await fetchRepos(userName);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchRepos = async (user) => {
