@@ -1,0 +1,60 @@
+.user_card_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.user_card {
+  background-color: #4c2885;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 8px;
+  padding: 24px;
+
+  img {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+  }
+
+  .user_details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+
+    a {
+      color: #fff;
+      font-size: 24px;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .user_infos {
+      display: flex;
+      gap: 12px;
+    }
+
+    .repos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      a {
+        display: inline-block;
+        font-size: 16px;
+        background-color: #2a2a72;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
