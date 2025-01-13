@@ -1,0 +1,21 @@
+.form_wrapper {
+  form {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    min-width: 280px;
+    max-width: 500px;
+    background-color: #4c2885;
+    border: none;
+    outline: none;
+    padding: 12px;
+    border-radius: 8px;
+    color: #fff;
+    display: block;
+  }
+}
