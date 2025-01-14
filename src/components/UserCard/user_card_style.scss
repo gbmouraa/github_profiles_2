@@ -1,60 +1,85 @@
 .user_card_wrapper {
   display: flex;
   justify-content: center;
-}
 
-.user_card {
-  background-color: #4c2885;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  margin-top: 32px;
-  width: 100%;
-  max-width: 700px;
-  border-radius: 8px;
-  padding: 24px;
-
-  img {
-    width: 66px;
-    height: 66px;
-    border-radius: 50%;
-  }
-
-  .user_details {
+  .user_card {
+    background-color: #4c2885;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    color: #fff;
+    margin-top: 32px;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+    padding: 24px;
 
-    a {
+    img {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+    }
+
+    .user_details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
       color: #fff;
-      font-size: 24px;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    .user_infos {
-      display: flex;
-      gap: 12px;
-    }
-
-    .repos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
 
       a {
-        display: inline-block;
-        font-size: 16px;
-        background-color: #2a2a72;
-        padding: 4px 8px;
-        border-radius: 4px;
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .user_infos {
+        display: flex;
+        gap: 12px;
+      }
+
+      .repos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+
+        a {
+          display: inline-block;
+          font-size: 16px;
+          background-color: #2a2a72;
+          padding: 4px 8px;
+          border-radius: 4px;
+        }
       }
     }
   }
+}
+
+.loading_wrapper {
+  display: flex;
+  margin-top: 50px;
+
+  .loading {
+    width: 44px;
+    height: 44px;
+    border: 5px solid #fff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin: auto;
+  }
+}
+
+.bad_request_msg {
+  color: #e0e0e0;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
 }

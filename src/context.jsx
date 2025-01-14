@@ -6,14 +6,23 @@ import api from "./api";
 export const ContextProvider = ({ children }) => {
   const [userData, setUserData] = useState();
   const [repos, setRepos] = useState();
+  const [loading, setLoading] = useState(false);
+  const [badRequest, setBadRequest] = useState(false);
 
   const fetchUserData = async (userName) => {
+    setBadRequest(false);
+    setLoading(true);
+
     try {
       const response = await api.get(userName);
       setUserData(response.data);
       await fetchRepos(userName);
     } catch (error) {
       console.log(error);
+      setBadRequest(true);
+      setUserData(false);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -32,6 +41,8 @@ export const ContextProvider = ({ children }) => {
         fetchRepos,
         userData,
         repos,
+        loading,
+        badRequest,
       }}
     >
       {children}

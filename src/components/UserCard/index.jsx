@@ -3,9 +3,25 @@ import { AppContext } from "../../appContext";
 import "./user_card_style.scss";
 
 export const UserCard = () => {
-  const { userData, repos } = useContext(AppContext);
+  const { userData, repos, loading, badRequest } = useContext(AppContext);
+
+  if (loading) {
+    return (
+      <div className="loading_wrapper">
+        <span className="loading"></span>
+      </div>
+    );
+  }
+
   return (
     <>
+      {badRequest ? (
+        <span className="bad_request_msg">
+          Desculpe não conseguimos encontrar este usuário, tente novamente.🥲
+        </span>
+      ) : (
+        <></>
+      )}
       {userData ? (
         <div className="user_card_wrapper">
           <div className="user_card">
