@@ -17,7 +17,7 @@ export const UserCard = () => {
     <>
       {badRequest ? (
         <span className="bad_request_msg">
-          Desculpe não conseguimos encontrar este usuário, tente novamente.🥲
+          {`Sorry, we couldn't find this profile, please try again .🥲`}
         </span>
       ) : (
         <></>
